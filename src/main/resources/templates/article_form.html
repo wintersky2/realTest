@@ -1,0 +1,13 @@
+<h3>Article 등록페이지</h3>
+
+<form th:action="@{/article/create}" method="post">
+    <div>
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div>
+        <label for="title">내용</label>
+        <textarea id="content" name="content"></textarea>
+    </div>
+    <button type="submit">등록</button>
+</form>
