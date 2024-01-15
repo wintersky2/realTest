@@ -1,10 +1,14 @@
-<h3>
-    Article detail 페이지
-</h3>
-<div>
-    <span>제목</span>
-    <div th:text="${article.title}" name="title"></div>
-    <span>제목</span>
-    <div th:text="${article.title}" name="title"></div>
-
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <h3>
+        Article detail 페이지
+    </h3>
+    <div>
+        <span>제목</span>
+        <div th:text="${article.title}" name="title"></div>
+        <span>내용</span>
+        <div th:text="${article.content}" name="content"></div>
+    </div>
+    <a th:href="@{/article/list}">Article 목록</a>
 </div>
+</html>
