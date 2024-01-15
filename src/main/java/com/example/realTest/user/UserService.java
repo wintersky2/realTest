@@ -11,7 +11,8 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    public void signup(String username,String nickname,String password){
+
+    public void signup(String username, String nickname, String password) {
         SiteUser siteUser = new SiteUser();
         siteUser.setUsername(username);
         siteUser.setNickname(nickname);
@@ -21,7 +22,7 @@ public class UserService {
 
     public SiteUser getUser(String username) {
         Optional<SiteUser> os = this.userRepository.findByusername(username);
-        if(os.isEmpty()){
+        if (os.isEmpty()) {
             throw new RuntimeException("없는 사용자");
         }
         return os.get();

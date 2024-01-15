@@ -14,11 +14,15 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(length = 100)
     private String title;
+
     @Column(columnDefinition = "TEXT")
     private String content;
+
     private LocalDateTime createDate;
+
     @ManyToOne
     private SiteUser author;
 }
