@@ -12,8 +12,8 @@ import java.util.List;
 public class ArticleService {
     private final ArticleRepository articleRepository;
 
-    public List<Article> getList() {
-        return this.articleRepository.findAll();
+    public List<Article> getList(String keyword) {
+        return this.articleRepository.findAllByKeyword(keyword);
     }
 
     public void create(String title, String content, SiteUser user) {

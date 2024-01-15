@@ -20,8 +20,8 @@ public class ArticleController {
     private final UserService userService;
 
     @GetMapping("/list")
-    public String list(Model model) {
-        List<Article> articleList = this.articleService.getList();
+    public String list(Model model,@RequestParam(value = "keyword",defaultValue = "")String keyword) {
+        List<Article> articleList = this.articleService.getList(keyword);
         model.addAttribute("articleList", articleList);
         return "article_list";
     }

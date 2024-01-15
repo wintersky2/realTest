@@ -2,6 +2,10 @@
 <div layout:fragment="content">
     <div>
         <a href="/article/create">Article 등록</a>
+        <form th:action="@{/article/list}">
+            <input type="text" id="keyword" name="keyword">
+            <button type="submit">찾기</button>
+        </form>
     </div>
     <table>
         <thead>
