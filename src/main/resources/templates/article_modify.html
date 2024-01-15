@@ -1,0 +1,15 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <form th:action="@{/article/modify/{article.id}}">
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" th:field="${article.title}">
+        </div>
+        <div>
+            <label for="title">내용</label>
+            <textarea id="content" name="content" th:field="${article.content}"></textarea>
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+</html>

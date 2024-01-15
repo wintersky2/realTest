@@ -9,6 +9,10 @@
         <span>내용</span>
         <div th:text="${article.content}" name="content"></div>
     </div>
+    <div>
+        <a th:href="@{|/article/modify/${article.id}|}">수정</a>
+        <a th:href="@{|/article/delete/${article.id}|}">삭제</a>
+    </div>
     <a th:href="@{/article/list}">Article 목록</a>
 </div>
 </html>

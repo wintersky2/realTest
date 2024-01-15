@@ -1,5 +1,6 @@
 package com.example.realTest.article;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +35,27 @@ public class ArticleController {
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id) {
         Article article = this.articleService.getArticle(id);
-        model.addAttribute("article",article);
+        model.addAttribute("article", article);
         return "article_detail";
+    }
+
+    @GetMapping("/modify/{id}")
+    public String modify(Model model, @PathVariable("id") Integer id) {
+        Article article = this.articleService.getArticle(id);
+        model.addAttribute("article", article);
+        return "article_modify";
+    }
+
+    @PostMapping("/modify/{id}")
+    public String modify(@PathVariable(value = "id") Integer id, @RequestParam(value = "title") String title,
+                         @RequestParam(value = "content") String content) {
+        this.articleService.modify(id,title,content);
+        return String.format("redirect:/article/detail/%s",id);
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable(value = "id")Integer id){
+        this.articleService.delete(id);
+        return "redirect:/";
     }
 }

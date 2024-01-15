@@ -11,10 +11,11 @@ import java.util.List;
 public class ArticleService {
     private final ArticleRepository articleRepository;
 
-    public List<Article> getList(){
+    public List<Article> getList() {
         return this.articleRepository.findAll();
     }
-    public void create(String title, String content){
+
+    public void create(String title, String content) {
         Article article = new Article();
         article.setTitle(title);
         article.setContent(content);
@@ -24,5 +25,17 @@ public class ArticleService {
 
     public Article getArticle(Integer id) {
         return this.articleRepository.getById(id);
+    }
+
+    public void modify(Integer id, String title, String content) {
+        Article article = this.getArticle(id);
+        article.setTitle(title);
+        article.setContent(content);
+        this.articleRepository.save(article);
+    }
+
+    public void delete(Integer id) {
+        Article article = this.getArticle(id);
+        this.articleRepository.delete(article);
     }
 }
