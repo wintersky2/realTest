@@ -10,8 +10,10 @@
         <div th:text="${article.content}" name="content"></div>
     </div>
     <div>
-        <a th:href="@{|/article/modify/${article.id}|}">수정</a>
-        <a th:href="@{|/article/delete/${article.id}|}">삭제</a>
+        <a th:if="${article.author != null and #authentication.getPrincipal().getUsername() == article.author.username}"
+           th:href="@{|/article/modify/${article.id}|}">수정</a>
+        <a th:if="${article.author != null and #authentication.getPrincipal().getUsername() == article.author.username}"
+           th:href="@{|/article/delete/${article.id}|}">삭제</a>
     </div>
     <a th:href="@{/article/list}">Article 목록</a>
 </div>

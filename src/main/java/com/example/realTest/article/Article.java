@@ -1,5 +1,6 @@
 package com.example.realTest.article;
 
+import com.example.realTest.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,4 +19,6 @@ public class Article {
     @Column(columnDefinition = "TEXT")
     private String content;
     private LocalDateTime createDate;
+    @ManyToOne
+    private SiteUser author;
 }
